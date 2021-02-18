@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next) {
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
   const v = new Vault({ password: req.body.passphrase });
+  req.body.passphrase = req.body.passphrase || process.env.PASSPHRASE;
   if (!req.body.passphrase || req.body.passphrase == '' || !req.body.content || req.body.content == '') {
     res.status(200).json({
       'status': 'fail',
