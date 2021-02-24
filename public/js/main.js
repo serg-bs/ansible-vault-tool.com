@@ -54,9 +54,9 @@ $(document).ready(function () {
             content = await new Response(document.getElementById('content_file').files[0]).text();
         }
 
-        if ($('#passphrase').val() == '' || content == '' || $(this).data('action') == '') {
+        if ( content == '' || $(this).data('action') == '') {
             hideProgress();
-            alert('Please fill in passphrase and content!');
+            alert('Please fill in content!');
             return;
         }
         const data = {
